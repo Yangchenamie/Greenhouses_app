@@ -1,0 +1,33 @@
+.task-box {
+  height: 93px;
+  padding: 0 12px;
+  .taskItem {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    .item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+      .taskName{
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .task-options {
+        display: flex;
+        font-size: 13px;
+        p {
+          padding:0 10px;
+          border-right: solid 1px #a6a6a6;
+          &:last-child{
+            border-right: 0;
+          }
+          &:first-child{
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

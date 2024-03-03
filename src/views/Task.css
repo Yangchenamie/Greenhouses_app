@@ -1,0 +1,32 @@
+.task-box {
+  height: 93px;
+  padding: 0 12px;
+}
+.task-box .taskItem {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.task-box .taskItem .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.task-box .taskItem .item .taskName {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.task-box .taskItem .item .task-options {
+  display: flex;
+  font-size: 13px;
+}
+.task-box .taskItem .item .task-options p {
+  padding: 0 10px;
+  border-right: solid 1px #a6a6a6;
+}
+.task-box .taskItem .item .task-options p:last-child {
+  border-right: 0;
+}
+.task-box .taskItem .item .task-options p:first-child {
+  padding-left: 0;
+}

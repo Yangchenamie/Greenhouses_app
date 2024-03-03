@@ -72,6 +72,8 @@ const cssModuleRegex = /\.module\.css$/;
 const lessRegex = /\.less$/;
 const lessModuleRegex = /\.module\.less$/;
 
+const px2rem = require('postcss-pxtorem')
+
 const hasJsxRuntime = (() => {
   if (process.env.DISABLE_NEW_JSX_TRANSFORM === 'true') {
     return false;
@@ -147,6 +149,10 @@ module.exports = function (webpackEnv) {
                   // so that it honors browserslist config in package.json
                   // which in turn let's users customize the target behavior as per their needs.
                   'postcss-normalize',
+                  px2rem({
+                    rootValue:42.8,
+                    propList:['*']
+                  })
                 ]
               : [
                   'tailwindcss',
@@ -160,6 +166,10 @@ module.exports = function (webpackEnv) {
                       stage: 3,
                     },
                   ],
+                  px2rem({
+                    rootValue:42.8,
+                    propList:['*']
+                  })
                 ],
           },
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
