@@ -1,5 +1,5 @@
 .greenHouse-box {
-  padding: 10px 13px;
+  padding: 20px 13px;
 }
 .greenHouse-box .navTar {
   display: flex;
@@ -23,16 +23,7 @@
   height: 41px;
 }
 .greenHouse-box .navTar .navTar-item:nth-child(1) {
-  background: linear-gradient(175.41deg, #5bb993 0%, #cccccc 100%);
-}
-.greenHouse-box .navTar .navTar-item:nth-child(2) {
-  background: linear-gradient(162.36deg, #75a4d9 0%, #cccccc 100%);
-}
-.greenHouse-box .navTar .navTar-item:nth-child(3) {
-  background: linear-gradient(172.94deg, #d1cc69 0%, #cccccc 100%);
-}
-.greenHouse-box .navTar .navTar-item:nth-child(4) {
-  background: linear-gradient(172.35deg, #5b62ba 0%, #cccccc 100%);
+  background: linear-gradient(175.41deg, #5bb993 0%, rgba(204, 204, 204, 0) 100%);
 }
 .greenHouse-box .monitorBox {
   padding: 0 9px;

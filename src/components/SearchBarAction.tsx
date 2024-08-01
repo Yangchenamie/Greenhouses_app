@@ -1,6 +1,7 @@
-import React from "react";
+import React, { FC } from "react";
 import { SearchBar } from "antd-mobile";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const SearchBarBox = styled.div`
   .searchBar-box {
@@ -21,13 +22,15 @@ const SearchBarBox = styled.div`
   }
 `;
 
-const SearchBarAction = function SearchBarAction(): JSX.Element {
+
+const SearchBarAction:FC = function SearchBarAction() {
+  const navigate = useNavigate();
   return (
     <SearchBarBox>
       <div className="searchBar-box">
         <SearchBar
+          onFocus={() => navigate("/search")}
           placeholder="输入需要查找品种、地块或植物"
-          showCancelButton
         />
       </div>
     </SearchBarBox>

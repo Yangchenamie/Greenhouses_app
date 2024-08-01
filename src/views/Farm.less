@@ -40,9 +40,11 @@
     }
   }
   .farm-middle {
+    z-index: 999;
     padding: 0 11px 130px;
 
     .realtimeVedio {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -92,4 +94,40 @@
       font-size: 16px;
     }
   }
+  .maskBox{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+    h1{
+      font-size: 24px;
+      margin-bottom: 18px;
+      span{
+        color: rgba(245, 12, 12, 1);
+      }
+    }
+    p{
+      font-size: 18px;
+    }
+  }
+}
+.adm-center-popup-wrap{
+  max-width: none;
+}
+.adm-modal-body{
+  width: 381px;
+  height: 321px;
+  box-shadow: 0px 2px 4px  rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  box-sizing: border-box;
+  padding: 32px 20px 20px;
+}
+.adm-button{
+  height: 46px;
+  border-radius: 25px;
+  background-color: #56B790;
+  color: #fff;
+}
+.adm-space-item{
+  margin-bottom: 15px;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, useState } from "react";
 import NavBarAction from "../components/NavBarAction";
 import "./Equipment.less";
 
@@ -6,8 +6,8 @@ import on from "../assets/images/on.png";
 import off from "../assets/images/off.png";
 import SlotBox from "../components/SlotBox";
 
-const Equipment = function Equipment(): JSX.Element {
-  const controlData = [
+const Equipment: FC = function Equipment() {
+  const [controlData, setControlData] = useState([
     {
       id: 1,
       status: 1,
@@ -31,9 +31,9 @@ const Equipment = function Equipment(): JSX.Element {
     {
       id: 5,
       status: 1,
-      title: "灌溉器",
+      title: "卷帘器",
     },
-  ];
+  ]);
 
   return (
     <div className="equipment-box">
@@ -62,9 +62,17 @@ const Equipment = function Equipment(): JSX.Element {
         <div className="control">
           <SlotBox title="设备管理">
             <div className="controlItems">
-              {controlData.map((item) => {
+              {controlData.map((item,index) => {
                 return (
-                  <div className="controlItem" key={item.id}>
+                  <div
+                    className="controlItem"
+                    key={item.id}
+                    onClick={() => {
+                      let newData = controlData;
+                      newData[index].status = item.status === 1 ? 0 : 1;
+                      setControlData([...newData]);
+                    }}
+                  >
                     <img src={item.status === 1 ? on : off} alt="" />
                     <p>{item.title}</p>
                   </div>
@@ -75,53 +83,56 @@ const Equipment = function Equipment(): JSX.Element {
         </div>
         <div className="status">
           <SlotBox title="设备状态">
-              <table>
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>设备总数</th>
-                    <th>正常数量</th>
-                    <th>异常数量</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th>摄像头</th>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <th>摄像头</th>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <th>摄像头</th>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <th>摄像头</th>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>0</td>
-                  </tr>
-                  <tr>
-                    <th>摄像头</th>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>0</td>
-                  </tr>
-                </tbody>
-              </table>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>设备总数</th>
+                  <th>正常数量</th>
+                  <th>异常数量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>摄像头</th>
+                  <td>13</td>
+                  <td>13</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <th>摄像头</th>
+                  <td>13</td>
+                  <td>13</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <th>摄像头</th>
+                  <td>13</td>
+                  <td>13</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <th>摄像头</th>
+                  <td>13</td>
+                  <td>13</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <th>摄像头</th>
+                  <td>13</td>
+                  <td>13</td>
+                  <td>0</td>
+                </tr>
+              </tbody>
+            </table>
           </SlotBox>
         </div>
         <div className="abnormal">
           <SlotBox title="异常定位">
-            <p className="text"><span>1</span>个<span>灌溉器</span>异常，位于<span>03</span>号大棚，建议立即处理</p>
+            <p className="text">
+              <span>1</span>个<span>灌溉器</span>异常，位于<span>03</span>
+              号大棚，建议立即处理
+            </p>
           </SlotBox>
         </div>
       </div>

@@ -1,6 +1,5 @@
-import React from "react";
+import React, { FC } from "react";
 import TabBarAction from "../components/TabBarAction";
-
 import sunLight from "../assets/images/sunLight.png";
 import sun from "../assets/images/sun.png";
 import "./Farm.less";
@@ -8,8 +7,15 @@ import SearchBarAction from "../components/SearchBarAction";
 import NavigationBox from "../components/NavigationBox";
 
 import green from "../assets/images/green.png";
+import { NavigateFunction } from "react-router-dom";
+import FlvPlayer from "../components/FlvPlayer";
 
-const Farm = function Farm(): JSX.Element {
+interface BaseProps {
+  navigate: NavigateFunction;
+}
+
+const Farm: FC<BaseProps> = function Farm({ navigate }) {
+  const flvSrc = "http://47.106.33.141:8080/live/plants.flv";
   return (
     <div className="FarmBox">
       <div className="farm-header">
@@ -39,14 +45,14 @@ const Farm = function Farm(): JSX.Element {
       </div>
 
       <div className="farm-middle">
-        <div className="realtimeVedio">
-          <NavigationBox title="实时视频" />
+        <div className="realtimeVedio" onClick={() => navigate("/monitor")}>
+          <NavigationBox title="实时视频" pathname="/monitor" />
           <div className="realtimeVedioItem">
-            <img src={green} alt="" />
+            <FlvPlayer url={flvSrc}/>
           </div>
         </div>
         <div className="knowledgeBox">
-          <NavigationBox title="农业知识" />
+          <NavigationBox title="农业知识" pathname="/knowledge" />
           <div className="text">
             <span className="dayKnowledge">每日知识</span>
             <span>
@@ -54,7 +60,10 @@ const Farm = function Farm(): JSX.Element {
             </span>
           </div>
         </div>
-        <div className="knowledgeBox consultationBox">
+        <div
+          className="knowledgeBox consultationBox"
+          onClick={() => navigate("/expert")}
+        >
           <NavigationBox title="专家咨询" />
           <div className="text">
             为农场的找到可咨询的专家，线上或线下进行一对一指导，做到科学种植
@@ -62,6 +71,7 @@ const Farm = function Farm(): JSX.Element {
         </div>
       </div>
       <TabBarAction />
+     
     </div>
   );
 };

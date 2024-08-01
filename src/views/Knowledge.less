@@ -41,16 +41,28 @@
   }
   .taskNav {
     margin-top: 13px;
-    padding: 17px 30px ;
+    padding: 17px 30px;
+    .adm-grid-item {
+      border-bottom: solid 1px #56b790;
+      border-right: solid 1px #56b790;
+      &:last-child,
+      &:nth-child(3) {
+        border-bottom: 0;
+      }
+      &:last-child,
+      &:nth-child(2) {
+        border-right: 0;
+      }
+    }
+
     .item {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 87px;
       font-size: 20px;
-      border-bottom: solid 1px #56B790;
-      border-right: solid 1px #56B790;
-      img{
+
+      img {
         margin-right: 10px;
       }
     }

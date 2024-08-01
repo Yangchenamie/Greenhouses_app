@@ -7,7 +7,7 @@
   position: absolute;
   font-size: 23px;
   color: #fff;
-  top: 6px;
+  top: 30px;
   right: 30px;
 }
 .home-box .content .home-middle {
@@ -18,7 +18,7 @@
   flex-direction: column;
 }
 .home-box .content .home-middle .personal {
-  margin-top: 22px;
+  margin-top: 40px;
 }
 .home-box .content .home-middle .personal img {
   width: 99px;

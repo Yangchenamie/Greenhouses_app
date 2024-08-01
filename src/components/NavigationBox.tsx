@@ -1,11 +1,11 @@
-import React from "react";
-
+import React, { FC } from "react";
 import headTar from "../assets/images/headTar.png";
 import right from "../assets/images/right.png";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = styled.div`
-    width: 100%;
+  width: 100%;
   .tar {
     padding: 8px 14px;
     display: flex;
@@ -22,15 +22,29 @@ const Navigation = styled.div`
   }
 `;
 
-const NavigationBox = function NavigationBox(props:{title:string}): JSX.Element {
+interface BaseProps {
+  title: string;
+  pathname?: string;
+}
+
+const NavigationBox: FC<BaseProps> = function NavigationBox({
+  title,
+  pathname,
+}) {
+  const navigate = useNavigate();
+
+  const gotoPath = () => {
+    navigate({ pathname });
+  };
+
   return (
     <Navigation>
-      <div className="tar">
+      <div className="tar" onClick={gotoPath}>
         <div className="tar-fl">
           <img src={headTar} alt="" />
-          <h3>{props.title}</h3>
+          <h3>{title}</h3>
         </div>
-          <img src={right} alt="" />
+        <img src={right} alt="" />
       </div>
     </Navigation>
   );

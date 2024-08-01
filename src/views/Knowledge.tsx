@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import NavBarAction from "../components/NavBarAction";
 import SlotBox from "../components/SlotBox";
 import { Swiper, Image, Grid } from "antd-mobile";
@@ -10,7 +10,7 @@ import taskTwo from "../assets/images/taskTwo.png";
 import taskThree from "../assets/images/taskThree.png";
 import taskFour from "../assets/images/taskFour.png";
 
-const Knowledge = function Knowledge(): JSX.Element {
+const Knowledge: FC = function Knowledge() {
   return (
     <div className="task-box">
       <NavBarAction title="农业知识" />

@@ -1,4 +1,8 @@
-import React from "react";
+/* 
+  封装一个公共的盒子 使用插槽技术
+*/
+
+import React, { FC } from "react";
 import styled from "styled-components";
 
 const Slotbox = styled.div`
@@ -18,15 +22,17 @@ const Slotbox = styled.div`
   }
 `;
 
-const SlotBox = function SlotBox(props: {
+interface BaseProps {
   title?: string;
   children: JSX.Element;
-}): JSX.Element {
+}
+
+const SlotBox: FC<BaseProps> = function SlotBox({ title, children }) {
   return (
     <Slotbox>
       <div className="slot-box">
-        <p className="title">{props.title}</p>
-        {props.children}
+        <p className="title">{title}</p>
+        {children}
       </div>
     </Slotbox>
   );
