@@ -1,12 +1,14 @@
 import React from "react";
-import "./App.css";
-import Task from "./views/Task";
-import Knowledge from "./views/Knowledge";
+import "./App.less";
+import { HashRouter } from 'react-router-dom'
+import RouterView from "./router";
 
 function App() {
   return (
     <div className="App">
-      <Knowledge/>
+      <HashRouter>
+        <RouterView/>
+      </HashRouter>
     </div>
   );
 }
